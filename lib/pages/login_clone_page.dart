@@ -19,7 +19,6 @@ class LoginClonePage extends StatelessWidget {
             children: [
               const Spacer(),
 
-              // Logo Instagram
               const Text(
                 'Instagram',
                 style: TextStyle(
@@ -30,20 +29,17 @@ class LoginClonePage extends StatelessWidget {
               ),
               const SizedBox(height: 30),
 
-              // Reusable TextField Username
               CustomTextfield(
                 txtController: txtUsername,
                 myHint: "Phone number, username, or email",
               ),
               const SizedBox(height: 12),
 
-              // Reusable TextField Password
               CustomTextfield(
                 txtController: txtPassword,
                 myHint: "Password",
               ),
 
-              // Lupa Password
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -56,24 +52,23 @@ class LoginClonePage extends StatelessWidget {
               ),
               const SizedBox(height: 10),
 
-              // Button Login Biru (Tanpa Fungsi)
               SizedBox(
                 width: double.infinity,
                 height: 44,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF3797EF), // Warna biru Instagram
-                    disabledBackgroundColor: const Color(0xFF3797EF), // Tetap biru meskipun onPressed null
+                    backgroundColor: const Color(0xFF3797EF),
+                    disabledBackgroundColor: const Color(0xFF3797EF),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),
-                  onPressed: null, // Tanpa fungsi
+                  onPressed: null,
                   child: const Text(
                     'Log In',
                     style: TextStyle(
-                      color: Colors.white, // Teks warna putih
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

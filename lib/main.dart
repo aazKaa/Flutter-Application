@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/login_page.dart';
+import 'package:flutter_application_2/pages/kalkulator_page.dart';
 import 'package:flutter_application_2/pages/login_clone_page.dart';
 import 'login_clone.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
       //home: LoginPage(),
-      home: const LoginClonePage(),
+      home: KalkulatorPage(),
     );
   }
 }
