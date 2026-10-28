@@ -1,17 +1,17 @@
 class MakananModel {
-  String namamakanan;
-  String hargamakanan;
-  String gambarmakanan;
-  String rating;
-  String deskripsi;
-  String review;
+  final String namaMakanan;
+  final String hargaMakanan;
+  final String gambarMakanan;
+  final String deskripsiMakanan;
+  final String ratingMakanan;
+  final String reviewMakanan;
 
   MakananModel({
-    required this.namamakanan,
-    required this.hargamakanan,
-    required this.gambarmakanan,
-    required this.rating,
-    required this.deskripsi,
-    required this.review,
+    required this.namaMakanan,
+    required this.hargaMakanan,
+    required this.gambarMakanan,
+    required this.deskripsiMakanan,
+    required this.ratingMakanan,
+    required this.reviewMakanan,
   });
 }

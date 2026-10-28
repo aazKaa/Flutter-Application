@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/controller/listmakanan_controller.dart';
 import 'package:flutter_application_2/models/makanan_model.dart';
 import 'package:get/get.dart';
 
@@ -14,56 +13,53 @@ class DetailMakananPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 0, 153, 255),
         foregroundColor: Colors.white,
-        title: Text(makanan.namamakanan),
+        title: Text(makanan.namaMakanan),
       ),
-      body: SingleChildScrollView(
+      body: ListView(
         padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
+        children: [
+          Container(
+            width: double.infinity,
+            height: 220,
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                makanan.gambarmakanan,
-                width: double.infinity,
-                height: 220,
-                fit: BoxFit.cover,
+              image: DecorationImage(
+                image: NetworkImage(makanan.gambarMakanan),
               ),
             ),
-            SizedBox(height: 16),
-            Text(
-              makanan.namamakanan,
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 6),
-            Text(
-              "Rp. ${makanan.hargamakanan}",
-              style: TextStyle(fontSize: 18, color: Colors.green),
-            ),
-            SizedBox(height: 12),
-            Row(
-              children: [
-                Icon(Icons.star, color: Colors.amber),
-                SizedBox(width: 6),
-                Text("${makanan.rating} / 5.0"),
-              ],
-            ),
-            Divider(height: 30),
-            Text(
-              "Deskripsi",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 6),
-            Text(makanan.deskripsi),
-            Divider(height: 30),
-            Text(
-              "Ulasan Pembeli",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 6),
-            Text(makanan.review),
-          ],
-        ),
+          ),
+          SizedBox(height: 16),
+          Text(
+            makanan.namaMakanan,
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 6),
+          Text(
+            "Rp. ${makanan.hargaMakanan}",
+            style: TextStyle(fontSize: 18, color: const Color.fromARGB(255, 0, 0, 0)),
+          ),
+          SizedBox(height: 12),
+          Row(
+            children: [
+              SizedBox(width: 6),
+              Text("${makanan.ratingMakanan} / 5.0"),  
+            ],
+          ),
+          Divider(height: 30),
+          Text(
+            "Deskripsi",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 6),
+          Text(makanan.deskripsiMakanan),
+          Divider(height: 30),
+          Text(
+            "Ulasan Pembeli",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 6),
+          Text(makanan.reviewMakanan),
+        ],
       ),
     );
   }

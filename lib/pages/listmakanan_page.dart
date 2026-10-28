@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/controller/listmakanan_controller.dart';
-import 'package:flutter_application_2/models/makanan_model.dart';
 import 'package:flutter_application_2/pages/detail_makanan_page.dart';
+import 'package:flutter_application_2/routes.dart';
 import 'package:get/get.dart';
 
 class ListMakananPage extends StatelessWidget {
@@ -24,27 +24,31 @@ class ListMakananPage extends StatelessWidget {
       ),
       body: ListView.builder(
         padding: EdgeInsets.all(12),
-        itemCount: controller.listMakanan.length,
+        itemCount: controller.listMakananController.length,
         itemBuilder: (context, index) {
-          final makanan = controller.listMakanan[index];
+          final makanan = controller.listMakananController[index];
           return Card(
             color: Colors.white,
             margin: EdgeInsets.only(bottom: 10),
             child: InkWell(
               onTap: () {
-                Get.to(() => DetailMakananPage(), arguments: makanan);
-              },
+              Get.toNamed(
+                Routes.detail_makanan,
+                arguments: makanan,
+              );
+            },
               child: Padding(
                 padding: EdgeInsets.all(14),
                 child: Row(
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network(
-                        makanan.gambarmakanan,
-                        width: 60,
-                        height: 60,
-                        fit: BoxFit.cover,
+                    Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: NetworkImage(makanan.gambarMakanan),
+                        ),
                       ),
                     ),
                     SizedBox(width: 12),
@@ -53,7 +57,7 @@ class ListMakananPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            makanan.namamakanan,
+                            makanan.namaMakanan,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -61,13 +65,12 @@ class ListMakananPage extends StatelessWidget {
                           ),
                           SizedBox(height: 4),
                           Text(
-                            "Rp${makanan.hargamakanan}",
+                            "Rp${makanan.hargaMakanan}",
                             style: TextStyle(fontSize: 14),
                           ),
                         ],
                       ),
                     ),
-                    Icon(Icons.chevron_right, color: Colors.grey),
                   ],
                 ),
               ),
