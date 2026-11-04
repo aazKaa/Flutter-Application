@@ -4,11 +4,13 @@ import 'package:flutter_application_2/pages/listmakanan_page.dart';
 import 'package:flutter_application_2/pages/main_menu_page.dart';
 import 'package:flutter_application_2/pages/menu_drawer.dart';
 import 'package:flutter_application_2/pages/registration_page.dart';
+import 'package:flutter_application_2/pages/login_page.dart';
 import 'package:get/get.dart';
 
 class Routes {
   // list variabel nama halaman
   static const String registration = "/registration";
+  static const String login = "/login";
   static const String confirm_registration = "/confirm_registration";
   static const String list_makanan = "/list_makanan";
   static const String detail_makanan = '/detail-makanan';
@@ -42,5 +44,11 @@ class Routes {
       name: drawer,
       page: () => MenuDrawer()
     ),
+    GetPage(
+      name: login,
+      page: () => LoginPage()
+    ),
   ];
+
+  static List<GetPage<dynamic>>? get myPages => null;
 }

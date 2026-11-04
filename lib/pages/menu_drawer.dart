@@ -30,10 +30,14 @@ class _MenuDrawerState extends State<MenuDrawer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orange.shade50,
       appBar: AppBar(
         title: const Text("Aplikasi Menu Navigasi"),
+        backgroundColor: const Color.fromARGB(255, 255, 149, 0),
+        foregroundColor: Colors.white,
       ),
       drawer: Drawer(
+        backgroundColor: Colors.orange.shade50,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -50,18 +54,27 @@ class _MenuDrawerState extends State<MenuDrawer> {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home),
+              leading: const Icon(Icons.home, color: Colors.deepOrange),
               title: const Text('Home'),
+              selected: _selectedIndex == 0,
+              selectedColor: Colors.deepOrange,
+              selectedTileColor: Colors.orange.shade100,
               onTap: () => _onItemTapped(0),
             ),
             ListTile(
-              leading: const Icon(Icons.history),
+              leading: const Icon(Icons.history, color: Colors.deepOrange),
               title: const Text('History'),
+              selected: _selectedIndex == 1,
+              selectedColor: Colors.deepOrange,
+              selectedTileColor: Colors.orange.shade100,
               onTap: () => _onItemTapped(1),
             ),
             ListTile(
-              leading: const Icon(Icons.person),
+              leading: const Icon(Icons.person, color: Colors.deepOrange),
               title: const Text('Profile'),
+              selected: _selectedIndex == 2,
+              selectedColor: Colors.deepOrange,
+              selectedTileColor: Colors.orange.shade100,
               onTap: () => _onItemTapped(2),
             ),
           ],
