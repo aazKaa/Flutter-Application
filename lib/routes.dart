@@ -4,7 +4,7 @@ import 'package:flutter_application_2/pages/listmakanan_page.dart';
 import 'package:flutter_application_2/pages/main_menu_page.dart';
 import 'package:flutter_application_2/pages/menu_drawer.dart';
 import 'package:flutter_application_2/pages/registration_page.dart';
-import 'package:flutter_application_2/pages/login_page.dart';
+import 'package:flutter_application_2/pages/loginclone_page.dart';
 import 'package:get/get.dart';
 
 class Routes {
