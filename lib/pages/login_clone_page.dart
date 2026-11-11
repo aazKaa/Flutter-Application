@@ -1,106 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/components/custom_textfield.dart';
+import 'package:flutter_application_2/controller/login_controller.dart';
+import 'package:get/get.dart';
 
 class LoginClonePage extends StatelessWidget {
-  const LoginClonePage({super.key});
+  LoginClonePage({super.key});
+
+  final controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController txtUsername = TextEditingController();
-    TextEditingController txtPassword = TextEditingController();
-
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Spacer(),
-
-              const Text(
-                'Instagram',
-                style: TextStyle(
-                  fontSize: 45,
-                  fontFamily: 'Cursive',
-                  fontWeight: FontWeight.bold,
-                ),
+      backgroundColor: Color.fromARGB(255, 171, 217, 249),
+      appBar: AppBar(
+        title: Text("Login", style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 0, 153, 255),
+        foregroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: controller.txtUsername,
+              decoration: InputDecoration(
+                labelText: "Username",
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(),
               ),
-              const SizedBox(height: 30),
-
-              CustomTextfield(
-                txtController: txtUsername,
-                myHint: "Phone number, username, or email",
+            ),
+            SizedBox(height: 16),
+            TextField(
+              controller: controller.txtPassword,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(),
               ),
-              const SizedBox(height: 12),
-
-              CustomTextfield(
-                txtController: txtPassword,
-                myHint: "Password",
-              ),
-
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: null,
-                  child: const Text(
-                    'Forgot password?',
-                    style: TextStyle(color: Color(0xFF3797EF), fontSize: 12),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-
-              SizedBox(
+            ),
+            SizedBox(height: 24),
+            Obx(
+              () => SizedBox(
                 width: double.infinity,
-                height: 44,
+                height: 48,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF3797EF),
-                    disabledBackgroundColor: const Color(0xFF3797EF),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: null,
-                  child: const Text(
-                    'Log In',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  onPressed:
+                      controller.isLoading.value ? null : controller.login,
+                  child: controller.isLoading.value
+                      ? CircularProgressIndicator()
+                      : Text("Login"),
                 ),
               ),
-
-              const Spacer(),
-
-              // Footer Sign Up
-              const Divider(thickness: 1, color: Color(0xFFEEEEEE)),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Don't have an account? ",
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
-                    ),
-                    Text(
-                      'Sign up.',
-                      style: TextStyle(
-                        color: Color(0xFF3797EF),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

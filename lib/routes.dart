@@ -1,10 +1,15 @@
 import 'package:flutter_application_2/pages/confirmreg_page.dart';
+import 'package:flutter_application_2/pages/detail_kuliner_page.dart';
 import 'package:flutter_application_2/pages/detail_makanan_page.dart';
+import 'package:flutter_application_2/pages/list_kuliner_page.dart';
 import 'package:flutter_application_2/pages/listmakanan_page.dart';
 import 'package:flutter_application_2/pages/main_menu_page.dart';
 import 'package:flutter_application_2/pages/menu_drawer.dart';
 import 'package:flutter_application_2/pages/registration_page.dart';
 import 'package:flutter_application_2/pages/loginclone_page.dart';
+import 'package:flutter_application_2/pages/list_kuliner_page.dart';
+import 'package:flutter_application_2/pages/detail_kuliner_page.dart';
+import 'package:flutter_application_2/pages/registration_page.dart';
 import 'package:get/get.dart';
 
 class Routes {
@@ -14,8 +19,10 @@ class Routes {
   static const String confirm_registration = "/confirm_registration";
   static const String list_makanan = "/list_makanan";
   static const String detail_makanan = '/detail-makanan';
-  static const String main_menu = '/main-menu';
+  static const String main_menu = '/main_menu';
   static const String drawer = '/drawer';
+  static const String kuliner = '/kuliner';
+  static const String detail_kuliner = '/detail-kuliner';
   // others pages here
 
   // untuk kita daftarkan di main dart, isinya array page yang kita punya
@@ -47,6 +54,14 @@ class Routes {
     GetPage(
       name: login,
       page: () => LoginPage()
+    ),
+    GetPage(
+      name: kuliner,
+      page: () => ListKulinerPage()
+    ),
+        GetPage(
+      name: detail_kuliner,
+      page: () => DetailKulinerPage()
     ),
   ];
 
